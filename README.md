@@ -1,7 +1,5 @@
 # FirstDapp
 
-Quik look https://docs.ethers.io/v5/getting-started/
-
 1. 新建 html，引入文件 `<script src="./index.js" type="moudel"></script>`
 
 2. 链接 metamask `await ethereum.request({ method: "eth_requestAccounts" });`
@@ -69,3 +67,7 @@ async function withdraw() {
   }
 }
 ```
+
+参考：
+https://github.com/PatrickAlphaC/html-fund-me-fcc/blob/main/index.html
+https://docs.ethers.io/v5/getting-started/
