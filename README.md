@@ -49,3 +49,23 @@ function listenForTxMine(txRes, provider) {
   });
 }
 ```
+
+8、与存款方式类似，提款代码
+
+```javascript
+async function withdraw() {
+  if (typeof window.ethereum !== "undefined") {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(contractAddress, abi, signer);
+    try {
+      console.log("Withdrawing...");
+      const txRes = await contract.withdraw();
+      await listenForTxMine(txRes, provider);
+      console.log("Done!");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+```
