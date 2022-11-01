@@ -7,10 +7,12 @@ const getBalanceBtn = document.getElementById("getBalance");
 const balanceLabel = document.getElementById("balanceLabel");
 const sendBtn = document.getElementById("sendBtn");
 const sendIpt = document.getElementById("sendIpt");
+const withdrawBtn = document.getElementById("withdrawBtn");
 
 connectBtn.onclick = connect;
 sendBtn.onclick = send;
 getBalanceBtn.onclick = getBalance;
+withdrawBtn.onclick = withdraw;
 
 async function connect() {
   if (typeof window.ethereum !== "undefined") {
@@ -56,6 +58,22 @@ async function send() {
       console.log("Done!");
     } catch (error) {
       console.error(error);
+    }
+  }
+}
+
+async function withdraw() {
+  if (typeof window.ethereum !== "undefined") {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(contractAddress, abi, signer);
+    try {
+      console.log("Withdrawing...");
+      const txRes = await contract.withdraw();
+      await listenForTxMine(txRes, provider);
+      console.log("Done!");
+    } catch (error) {
+      console.log(error);
     }
   }
 }
