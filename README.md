@@ -71,3 +71,5 @@ async function withdraw() {
 参考：
 https://github.com/PatrickAlphaC/html-fund-me-fcc/blob/main/index.html
 https://docs.ethers.io/v5/getting-started/
+在线合约工具：
+https://remix.ethereum.org/
