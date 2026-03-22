@@ -1,4 +1,8 @@
 # FirstDapp
+## 项目说明
+浏览器链接 metamask 的web3 功能。
+
+## 使用说明
 
 1. 新建 html，引入文件 `<script src="./index.js" type="moudel"></script>`
 
